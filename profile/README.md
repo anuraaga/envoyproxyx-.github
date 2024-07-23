@@ -15,7 +15,7 @@ this allows the shared object files to be used as the HTTP filters for the Envoy
 
 ## Goals / Non-Goals
 Goals:
-* The **fastest** way to write HTTP filters for Envoy without having to recompile the whole Envoy binary.
+* The **fastest** HTTP filters for Envoy without having to recompile the whole Envoy binary.
   * EnvoyX provides the **zero-copy** based API for the HTTP filters, which makes it suitable for the high-performance sensitive use cases such as HTTP body modification, etc.
 * The **most developer-friendly** way to write HTTP filters for Envoy without having to recompile the whole Envoy binary.
   * Being able to deploy shared object files means almost the same development experience as the usual software development.
