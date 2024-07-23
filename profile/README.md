@@ -5,10 +5,20 @@ which aims to provide a way to extend the functionality of the [Envoy Proxy©](h
 This can be thought as the NGINX style extension mechanism for the Envoy Proxy. In other words,
 this allows the shared object files to be used as the HTTP filters for the Envoy Proxy.
 
+### Table of Contents
+
+1. [Goals / Non-Goals](#goals--non-goals)
+2. [How to use EnvoyX](#how-to-use-envoyx)
+3. [Versioning](#versioning)
+4. [Why not upstream?](#why-not-upstream)
+5. [How do you compare with other extension mechanisms?](#how-do-you-compare-with-other-extension-mechanisms)
+
 ## Goals / Non-Goals
 Goals:
-* The **fastest** and **most efficient** way to write HTTP filters for Envoy without having to recompile the whole Envoy binary.
+* The **fastest** way to write HTTP filters for Envoy without having to recompile the whole Envoy binary.
   * EnvoyX provides the **zero-copy** based API for the HTTP filters, which makes it suitable for the high-performance sensitive use cases such as HTTP body modification, etc.
+* The **most developer-friendly** way to write HTTP filters for Envoy without having to recompile the whole Envoy binary.
+  * Being able to deploy shared object files means almost the same development experience as the usual software development.
 * Move fast and break things: the API is subject to change while maintaining minimal compatibility (See the [Versioning](#versioning) section).
 
 Non-Goals:
@@ -112,3 +122,7 @@ That is always the best solution.
 However, until the various use cases are identified and the APIs become stable,
 we would like to move fast and break things in the EnvoyX project. After the API is stabilized and the use cases are clear,
 we will propose the changes to the upstream Envoy Proxy project. See [the upstream issue](https://github.com/envoyproxy/envoy/issues/2053).
+
+## How do you compare with other extension mechanisms?
+
+TBD
