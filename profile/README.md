@@ -42,7 +42,7 @@ and you can replace the default Envoy Proxy binary with the custom build like:
 
 ```diff
 - envoyproxy/envoy:ENVOY_VERSION
-+ ghcr.io/envoyproxy/envoy:ENVOY_VERSION-envoyx-ENVOYX_VERSION
++ ghcr.io/envoyproxyx/envoy:ENVOY_VERSION-envoyx-ENVOYX_VERSION
 ```
 
 where
