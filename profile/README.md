@@ -30,7 +30,11 @@ Non-Goals:
 
 See [Versioning](#versioning) for the detail of the versioning of the EnvoyX project to use.
 
+Note that we are still in the early stage of the development, and looking for the real-world feedbacks.
+
 ### Deploying the custom build of the Envoy Proxy
+
+WARNING: Currently, the container only supports amd64 architecture.
 
 EnvoyX project provides the custom drop-in replacement build of the release versions of the Envoy Proxy
 with the support of the dynamic loading of the modules. We provide the docker containers,
