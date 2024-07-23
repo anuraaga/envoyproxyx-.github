@@ -117,7 +117,7 @@ allowing us to move fast and break things.
 ## Why not upstream?
 
 Of course, it would be great if the upstream Envoy Proxy project supports the dynamic loading of the modules.
-That is always the best solution. 
+That is always the ultimate goal of the EnvoyX project.
 
 However, until the various use cases are identified and the APIs become stable,
 we would like to move fast and break things in the EnvoyX project. After the API is stabilized and the use cases are clear,
@@ -125,4 +125,34 @@ we will propose the changes to the upstream Envoy Proxy project. See [the upstre
 
 ## How do you compare with other extension mechanisms?
 
-TBD
+There are four main extension mechanisms for the Envoy Proxy:
+* Lua
+* WebAssembly
+* External Process
+* Statically-compiled native extensions
+
+If you can do the statically compiled native extensions, then EnvoyX serves no purpose for you.
+This is only for those who cannot or do not want to build and maintain the custom Envoy builds by themselves.
+
+The other four mechanisms have their own pros and cons,
+but the main difference is the performance and the development experience.
+
+For the performance, the other extensions mechanisms, by design, have to copy the data between the Envoy Proxy and the extension.
+That is not the case for the EnvoyX project.
+The EnvoyX project provides the zero-copy based API for the HTTP filters, which makes it suitable for the high-performance sensitive use cases such as HTTP body modification, etc.
+
+For developer experience, Lua and WebAssembly are much less attractive than dynamic modules and external process.
+That is because we can use the normal developer tools for the development of the plugins.
+
+As for the security, Lua and WebAssembly are much more secure than the dynamic modules and external process.
+That is because of its sandbox nature and the isolation provided by the Envoy implementation. external process and
+dynamic modules are not sandboxed at all and should be trusted. However, if you can control the deployment of Envoy plugins,
+then the security is not a big concern. If you are still concerned about the security even if you can control the deployment,
+the question you should ask yourself is "what's the difference between the deployment of dynamic modules and your applications?".
+
+Forgot to mention, there's contrib [Golang filter](https://www.envoyproxy.io/docs/envoy/latest/start/sandboxes/golang-http),
+which allows the dynamically loaded Go HTTP filters. However, that should not be limited to Golang at all, plus
+the APIs is almost the same as the Wasm and Lua, which comes the unnecessary overheads. In any case, that is still in a contrib.
+
+As you can see, this is not one-size-fits-all, but we believe that the EnvoyX project fills
+the gap between the performance and the developer experience provided by the other extension mechanisms.
