@@ -80,11 +80,18 @@ In other worse, major version is always 1. So, ignore the major version and focu
 For minor versions, we cut release for **all repositories** at the same time including the docker container
 as well as the SDKs.
 
-In addition, we cut releases independently of the Envoy Proxy versions. That means,
+For patch versions, we cut the releases for the SDKs and the EnvoyX build independently of the other repositories.
+
+### Alignments with Envoy Proxy versions
+
+First, we cut releases independently of the Envoy Proxy versions. That means,
 there might be multiple versions of the EnvoyX project for a single version of the Envoy Proxy,
 e.g. `ghcr.io/envoyproxyx/envoy:v1.31-latest-envoyx-v1.99.0`, `ghcr.io/envoyproxyx/envoy:v1.31-latest-envoyx-v1.100.0`, etc.
 
-For patch versions, we cut the releases for the SDKs and the EnvoyX build independently of the other repositories.
+We support the latest three versions of the Envoy Proxy whichever available at the time of the release of the EnvoyX project.
+For example, at the time of writing, the latest three versions of the Envoy Proxy are `v1.29-latest`, `v1.30-latest`, and `v1.31-latest`,
+hence the EnvoyX container image tags will be `ghcr.io/envoyproxyx/envoy:v1.29-latest-envoyx-v1.X.Y`, 
+`ghcr.io/envoyproxyx/envoy:v1.30-latest-envoyx-v1.X.Y`, and `ghcr.io/envoyproxyx/envoy:v1.31-latest-envoyx-v1.X.Y`.
 
 ### Compatibility Promise
 
