@@ -43,7 +43,7 @@ and you can replace the default Envoy Proxy binary with the custom build like:
 
 where
 * `ENVOY_VERSION` is the version of the Envoy Proxy (e.g., `v1.29-latest`, `v1.30-latest`, etc.)
-* `ENVOYX_VERSION` is the version of the EnvoyX project (e.g., `v0.1.0`)
+* `ENVOYX_VERSION` is the version of the EnvoyX project (e.g., `v1.0.0`)
 
 For example, `ghcr.io/envoyproxyx/envoy:v1.31-latest-envoyx-v1.0.0` can be deployed as a
 drop-in replacement for `envoyproxy/envoy:v1.31-latest` which enables the use of the version `v1.0.0` of the EnvoyX project.
@@ -84,7 +84,7 @@ For the full example, see the example directory in the [Go SDK repository](https
 
 ## Versioning
 
-First of all, in the EnvoyX project, we cut the versions in the form of 1.X.Y, where X is the major version of the Envoy Proxy. 
+First of all, in the EnvoyX project, we cut the versions in the form of 1.X.Y, where X and Y are the minor and patch versions, respectively.
 In other worse, major version is always 1. So, ignore the major version and focus on the minor version.
 
 For minor versions, we cut release for **all repositories** at the same time including the docker container
