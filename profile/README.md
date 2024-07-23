@@ -71,9 +71,9 @@ like the following in the filter chain:
     "@type": type.googleapis.com/envoy.extensions.filters.http.dynamic_modules.v3.DynamicModuleConfig
     # The name is *optional* and is only used for logging by Envoy, not for modules.
     name: test
-    # The file_path is the path to the shared object file. We share the same file for both http filter chain.
+    # The file_path is the path to the shared object file. You can share the same file for all http filter chains.
     file_path: /path/to/libmain.so
-    # This is passed to newHttpFilter in main.go
+    # This is passed to the shared object file as the configuration.
     filter_config: "helloworld"
     # Since c-shared modules by the Go compiler toolchain do not support dlclose, https://github.com/golang/go/issues/11100
     # we need to set do_not_dlclose to true to avoid the crash.
